@@ -59,5 +59,20 @@ public class HotelTest {
         assertEquals(5, codeClanTowers.getNumberOfBedrooms());
     }
 
+    @Test
+    public void testCheckInGuestToAConferenceRoom(){
+        codeClanTowers.checkInGuestToConferenceRoom(conferenceRoom1, guest3);
+        assertEquals(1, conferenceRoom1.getNumberOfGuests());
+        assertEquals(false, conferenceRoom1.getStatus());
+    }
+
+    @Test
+    public void testCheckInGuestToBedroom(){
+        codeClanTowers.checkInGuestToBedroom(bedroom1, guest1);
+        codeClanTowers.checkInGuestToBedroom(bedroom1, guest2);
+        assertEquals(2, bedroom1.getNumberOfGuests());
+        assertEquals(false, bedroom1.getStatus());
+    }
+
 
 }
