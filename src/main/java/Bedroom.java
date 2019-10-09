@@ -36,12 +36,18 @@ public class Bedroom {
         checkVacant();
     }
 
-
     public int getNumberOfGuests() {
         return this.checkedInGuests.size();
     }
 
     public boolean getStatus() {
         return this.vacant;
+    }
+
+    public void removeGuest(Guest guest) {
+        if (this.checkedInGuests.contains(guest)) {
+            this.checkedInGuests.remove(guest);
+        }
+        checkVacant();
     }
 }

@@ -40,4 +40,11 @@ public class ConferenceRoom {
     public boolean getStatus() {
         return this.vacant;
     }
+
+    public void removeGuest(Guest guest) {
+        if (this.conferenceGuests.contains(guest)) {
+            this.conferenceGuests.remove(guest);
+        }
+        checkVacant();
+    }
 }

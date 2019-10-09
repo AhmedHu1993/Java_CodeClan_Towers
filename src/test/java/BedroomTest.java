@@ -28,4 +28,11 @@ public class BedroomTest {
         assertEquals(1, bedroom1.getNumberOfGuests());
         assertEquals(false, bedroom1.getStatus());
     }
+
+    @Test
+    public void testRemoveGuestFromRoom(){
+        bedroom1.addGuest(guest1);
+        bedroom1.removeGuest(guest1);
+        assertEquals(0, bedroom1.getNumberOfGuests());
+    }
 }
