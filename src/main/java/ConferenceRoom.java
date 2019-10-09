@@ -19,11 +19,12 @@ public class ConferenceRoom {
     }
 
     public void checkVacant(){
-        if (this.conferenceGuests.size() > 0){
-            this.vacant = false;
-        } else if (this.conferenceGuests.size() == 0){
-            this.vacant = true;
-        }
+//        if (this.conferenceGuests.size() > 0){
+//            this.vacant = false;
+//        } else if (this.conferenceGuests.size() == 0){
+//            this.vacant = true;
+//        }
+        this.vacant = this.conferenceGuests.size() == 0;
     }
 
     public void addGuest(Guest guest){
