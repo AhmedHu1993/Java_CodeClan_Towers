@@ -33,4 +33,11 @@ public class ConferenceRoom {
         checkVacant();
     }
 
+    public int getNumberOfGuests() {
+        return this.conferenceGuests.size();
+    }
+
+    public boolean getStatus() {
+        return this.vacant;
+    }
 }

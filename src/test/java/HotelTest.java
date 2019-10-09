@@ -33,19 +33,30 @@ public class HotelTest {
         bedroom4 = new Bedroom(201, 1, "Pool View");
         bedroom5 = new Bedroom(202, 2, "Twin Royal Room");
 
+        codeClanTowers.addBedroom(bedroom1);
+        codeClanTowers.addBedroom(bedroom2);
+        codeClanTowers.addBedroom(bedroom3);
+        codeClanTowers.addBedroom(bedroom4);
+        codeClanTowers.addBedroom(bedroom5);
+
         conferenceRoom1 = new ConferenceRoom("Colin",12);
         conferenceRoom2 = new ConferenceRoom("Ski", 6);
+
+        codeClanTowers.addConferenceRoom(conferenceRoom1);
+        codeClanTowers.addConferenceRoom(conferenceRoom2);
 
         guest1 = new Guest("Amanda");
         guest2 = new Guest("Shona");
         guest3 = new Guest("Joe");
         guest4 = new Guest("Alex");
         guest5 = new Guest("Ahmed");
+
+
     }
 
     @Test
     public void testNumberOfBedrooms(){
-        assertEquals(0, codeClanTowers.getNumberOfBedrooms());
+        assertEquals(5, codeClanTowers.getNumberOfBedrooms());
     }
 
 

@@ -37,4 +37,11 @@ public class Bedroom {
     }
 
 
+    public int getNumberOfGuests() {
+        return this.checkedInGuests.size();
+    }
+
+    public boolean getStatus() {
+        return this.vacant;
+    }
 }
