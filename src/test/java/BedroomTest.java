@@ -12,8 +12,8 @@ public class BedroomTest {
     @Before
     public void before(){
         bedroom1 = new Bedroom(101, 1, "Sea View", 80);
-        guest1 = new Guest("Joe");
-        guest1 = new Guest("Alex");
+        guest1 = new Guest("Joe",400);
+        guest1 = new Guest("Alex",500);
     }
 
     @Test

@@ -1,3 +1,4 @@
+import java.awt.print.Book;
 import java.util.ArrayList;
 
 public class Hotel {
@@ -26,15 +27,26 @@ public class Hotel {
         conferenceRoom.addGuest(guest);
     }
 
-    public void checkInGuestToBedroom(Bedroom bedroom, Guest guest){
-        bedroom.addGuest(guest);
+    public String checkInGuestToBedroom(Booking booking){
+        Bedroom bedroom = booking.getBedroom();
+        Guest guest = booking.getGuest();
+        String errorMsg = "";
+        if (guest.getWallet() > booking.totalBill()){
+            bedroom.addGuest(guest);
+            guest.updateWallet(booking.totalBill());
+        } else {
+           errorMsg = "Insufficient Funds";
+        }
+        return errorMsg;
     }
 
     public void checkGuestOutFromConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
         conferenceRoom.removeGuest(guest);
     }
 
-    public void checkGuestOutFromBedroom(Bedroom bedroom, Guest guest) {
+    public void checkGuestOutFromBedroom(Booking booking) {
+        Bedroom bedroom = booking.getBedroom();
+        Guest guest = booking.getGuest();
         bedroom.removeGuest(guest);
     }
 

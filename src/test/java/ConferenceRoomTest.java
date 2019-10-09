@@ -11,7 +11,7 @@ public class ConferenceRoomTest {
     @Before
     public void before(){
         conferenceRoom1 = new ConferenceRoom("Colin Suite", 12);
-        guest1 = new Guest("Alex");
+        guest1 = new Guest("Alex", 600);
     }
 
     @Test

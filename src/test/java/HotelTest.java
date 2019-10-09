@@ -22,6 +22,11 @@ public class HotelTest {
     private Guest guest4;
     private Guest guest5;
 
+    private Booking booking1;
+    private Booking booking2;
+    private Booking booking3;
+    private Booking booking4;
+
 
     @Before
     public void before(){
@@ -45,11 +50,16 @@ public class HotelTest {
         codeClanTowers.addConferenceRoom(conferenceRoom1);
         codeClanTowers.addConferenceRoom(conferenceRoom2);
 
-        guest1 = new Guest("Amanda");
-        guest2 = new Guest("Shona");
-        guest3 = new Guest("Joe");
-        guest4 = new Guest("Alex");
-        guest5 = new Guest("Ahmed");
+        guest1 = new Guest("Amanda",900);
+        guest2 = new Guest("Shona",800);
+        guest3 = new Guest("Joe",750);
+        guest4 = new Guest("Alex",600);
+        guest5 = new Guest("Ahmed",800);
+
+        booking1 = new Booking(bedroom1, 3, guest1);
+        booking2 = new Booking(bedroom2, 5, guest2);
+        booking3 = new Booking(bedroom3, 4, guest3);
+        booking4 = new Booking(bedroom1, 4, guest5);
 
 
     }
@@ -68,7 +78,7 @@ public class HotelTest {
 
     @Test
     public void testCheckInGuestToBedroom(){
-        codeClanTowers.checkInGuestToBedroom(bedroom1, guest1);
+        codeClanTowers.checkInGuestToBedroom(booking1);
         assertEquals(1, bedroom1.getNumberOfGuests());
         assertEquals(false, bedroom1.getStatus());
     }
@@ -83,28 +93,33 @@ public class HotelTest {
 
     @Test
     public void testCheckGuestOutFromBedroom(){
-        codeClanTowers.checkInGuestToBedroom(bedroom1, guest4);
-        codeClanTowers.checkGuestOutFromBedroom(bedroom1, guest4);
+        codeClanTowers.checkInGuestToBedroom(booking1);
+        codeClanTowers.checkGuestOutFromBedroom(booking1);
         assertEquals(0, bedroom1.getNumberOfGuests());
         assertEquals(true, bedroom1.getStatus());
     }
 
     @Test
     public void testHowManyVacantRooms(){
-        codeClanTowers.checkInGuestToBedroom(bedroom1, guest4);
-        codeClanTowers.checkInGuestToBedroom(bedroom2, guest3);
-        codeClanTowers.checkInGuestToBedroom(bedroom3, guest2);
+        codeClanTowers.checkInGuestToBedroom(booking1);
+        codeClanTowers.checkInGuestToBedroom(booking2);
+        codeClanTowers.checkInGuestToBedroom(booking3);
         assertEquals(2, codeClanTowers.getVacantRooms());
 
     }
 
     @Test
     public void testCanNotAddGuestToOccupiedRoom(){
-        codeClanTowers.checkInGuestToBedroom(bedroom3, guest4);
-        codeClanTowers.checkInGuestToBedroom(bedroom3, guest5);
-        codeClanTowers.checkInGuestToBedroom(bedroom3, guest3);
+        codeClanTowers.checkInGuestToBedroom(booking1);
+        codeClanTowers.checkInGuestToBedroom(booking4);
+        assertEquals(1, bedroom1.getNumberOfGuests());
 
-        assertEquals(1, bedroom3.getNumberOfGuests());
+    }
 
+    @Test
+    public void testGuestMultipleCheckInWithInsufficientFunds(){
+        codeClanTowers.checkInGuestToBedroom(booking3);
+        codeClanTowers.checkInGuestToBedroom(booking3);
+        assertEquals("Insufficient Funds",codeClanTowers.checkInGuestToBedroom(booking3));
     }
 }
