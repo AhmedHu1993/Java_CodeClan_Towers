@@ -7,14 +7,16 @@ public class Bedroom {
     private ArrayList<Guest> checkedInGuests;
     private String type;
     private Boolean vacant;
+    private int nightRate;
 
 
-    public Bedroom(int roomNumber, int capacity, String type){
+    public Bedroom(int roomNumber, int capacity, String type, int nightRate){
         this.roomNumber = roomNumber;
         this.capacity = capacity;
         this.type = type;
         this.checkedInGuests = new ArrayList<Guest>();
         this.vacant = true;
+        this.nightRate = nightRate;
     }
 
     public int getRoomNumber(){
@@ -49,5 +51,9 @@ public class Bedroom {
             this.checkedInGuests.remove(guest);
         }
         checkVacant();
+    }
+
+    public int getNightRate(){
+        return this.nightRate;
     }
 }

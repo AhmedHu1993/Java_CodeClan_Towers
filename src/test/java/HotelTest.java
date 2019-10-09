@@ -27,11 +27,11 @@ public class HotelTest {
     public void before(){
         codeClanTowers = new Hotel();
 
-        bedroom1 = new Bedroom(101, 2, "Sea View");
-        bedroom2 = new Bedroom(102, 3, "Sea View");
-        bedroom3 = new Bedroom(103, 4, "Family Room");
-        bedroom4 = new Bedroom(201, 1, "Pool View");
-        bedroom5 = new Bedroom(202, 2, "Twin Royal Room");
+        bedroom1 = new Bedroom(101, 2, "Sea View", 50);
+        bedroom2 = new Bedroom(102, 3, "Sea View", 60);
+        bedroom3 = new Bedroom(103, 4, "Family Room", 90);
+        bedroom4 = new Bedroom(201, 1, "Pool View", 40);
+        bedroom5 = new Bedroom(202, 2, "Twin Royal Room", 120);
 
         codeClanTowers.addBedroom(bedroom1);
         codeClanTowers.addBedroom(bedroom2);
