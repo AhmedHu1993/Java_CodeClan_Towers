@@ -32,7 +32,7 @@ public class Bedroom {
     }
 
     public void addGuest(Guest guest){
-        if (this.checkedInGuests.size() < this.capacity) {
+        if (this.checkedInGuests.size() < this.capacity && this.vacant ) {
             this.checkedInGuests.add(guest);
         }
         checkVacant();

@@ -69,8 +69,7 @@ public class HotelTest {
     @Test
     public void testCheckInGuestToBedroom(){
         codeClanTowers.checkInGuestToBedroom(bedroom1, guest1);
-        codeClanTowers.checkInGuestToBedroom(bedroom1, guest2);
-        assertEquals(2, bedroom1.getNumberOfGuests());
+        assertEquals(1, bedroom1.getNumberOfGuests());
         assertEquals(false, bedroom1.getStatus());
     }
 
@@ -96,6 +95,16 @@ public class HotelTest {
         codeClanTowers.checkInGuestToBedroom(bedroom2, guest3);
         codeClanTowers.checkInGuestToBedroom(bedroom3, guest2);
         assertEquals(2, codeClanTowers.getVacantRooms());
+
+    }
+
+    @Test
+    public void testCanNotAddGuestToOccupiedRoom(){
+        codeClanTowers.checkInGuestToBedroom(bedroom3, guest4);
+        codeClanTowers.checkInGuestToBedroom(bedroom3, guest5);
+        codeClanTowers.checkInGuestToBedroom(bedroom3, guest3);
+
+        assertEquals(1, bedroom3.getNumberOfGuests());
 
     }
 }
