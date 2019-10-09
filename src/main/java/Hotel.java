@@ -37,4 +37,16 @@ public class Hotel {
     public void checkGuestOutFromBedroom(Bedroom bedroom, Guest guest) {
         bedroom.removeGuest(guest);
     }
+
+    public int getVacantRooms() {
+        ArrayList<Bedroom> vacantRooms;
+        vacantRooms = new ArrayList<Bedroom>();
+        for (Bedroom bedroom : this.bedrooms) {
+            if (bedroom.getStatus()){
+                vacantRooms.add(bedroom);
+            }
+
+        }
+        return vacantRooms.size();
+    }
 }

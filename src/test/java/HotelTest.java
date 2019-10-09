@@ -90,4 +90,12 @@ public class HotelTest {
         assertEquals(true, bedroom1.getStatus());
     }
 
+    @Test
+    public void testHowManyVacantRooms(){
+        codeClanTowers.checkInGuestToBedroom(bedroom1, guest4);
+        codeClanTowers.checkInGuestToBedroom(bedroom2, guest3);
+        codeClanTowers.checkInGuestToBedroom(bedroom3, guest2);
+        assertEquals(2, codeClanTowers.getVacantRooms());
+
+    }
 }
